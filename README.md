@@ -64,7 +64,7 @@ Value           | Use
 --------------- | ---------------
 axis            | axis to scroll on, X or Y
 speed           | speed to scroll at; can be negative to change direction
-intialValue     | initial position in pixels
+initialValue     | initial position in pixels
 maxValue        | maximum value
 minValue        | minimum value
 cssUnit         | css unit to use for transform - px, %, vh, em etc.
