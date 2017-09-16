@@ -62,9 +62,6 @@ export class ParallaxScrollDirective implements OnInit {
             }
         }
 
-        // Set css property to adjust - backgroundPosition[X|Y]
-        this.cssProperty += this.axis;
-
         this.speed = +this.speed;
         this.initialValue = +this.initialValue;
 

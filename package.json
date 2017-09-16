@@ -1,6 +1,6 @@
 {
     "name": "ng2-parallaxscroll",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Parallax Scroll directive for Angular (4+) with AOT support.",
     "main": "./bundles/ng2-parallaxscroll.umd.js",
     "module": "./modules/ng2-parallaxscroll.es5.js",
@@ -26,7 +26,8 @@
     "keywords": [
         "angular",
         "javascript",
-        "typescript"
+        "typescript",
+        "parallax"
     ],
     "license": "MIT",
     "peerDependencies": {
