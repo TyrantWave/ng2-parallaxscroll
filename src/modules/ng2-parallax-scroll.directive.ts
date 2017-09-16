@@ -3,7 +3,7 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 /*
     Optional values to supply to the scroll directive
 */
-export interface ParallaxScrollConfig {
+export interface IParallaxScrollConfig {
     // axis to scroll the parallax on
     axis?: string;
 
@@ -44,58 +44,31 @@ export interface ParallaxScrollConfig {
     selector: '[parallax]'
 })
 export class ParallaxScrollDirective implements OnInit {
-    name = 'parallaxScrollDirective';
+    public name = 'parallaxScrollDirective';
 
-    @Input() config: ParallaxScrollConfig;
-    @Input() axis: 'X' | 'Y' = 'Y';
-    @Input() speed: number = -.7;
-    @Input() initialValue = 0;
-    @Input() maxValue: number;
-    @Input() minValue: number;
-    @Input() cssUnit = 'px';
-    @Input() scrollerId: string;
-    @Input() scrollElement: any;
-    @Input() parallaxElement: HTMLElement;
+    @Input() private config: IParallaxScrollConfig;
+    @Input() private axis: 'X' | 'Y' = 'Y';
+    @Input() private speed: number = -.7;
+    @Input() private initialValue = 0;
+    @Input() private maxValue: number;
+    @Input() private minValue: number;
+    @Input() private cssUnit = 'px';
+    @Input() private scrollerId: string;
+    @Input() private scrollElement: any;
+    @Input() private parallaxElement: HTMLElement;
 
-    cssProperty = 'backgroundPosition';
-
+    private cssProperty = 'backgroundPosition';
     private hostElement: HTMLElement;
 
-    private onScroll = () => {
-        let result: string;
-        let scrollPosition: number;
-
-        // Read scroll position * speed + initial val
-        if (this.scrollElement instanceof Window) {
-            scrollPosition = this.scrollElement.scrollY * this.speed + this.initialValue;
-        } else {
-            scrollPosition = this.scrollElement.scrollTop * this.speed + this.initialValue;
-        }
-
-        // Set limits
-        if (this.maxValue !== undefined && scrollPosition >= this.maxValue) {
-            scrollPosition = this.maxValue;
-        } else if (this.minValue !== undefined && scrollPosition <= this.minValue) {
-            scrollPosition = this.minValue;
-        }
-
-        // Get output based on axis
-        if (this.axis === 'X') {
-            result = 'calc(50% + ' + scrollPosition + this.cssUnit + ') center';
-        } else {
-            result = 'center calc(50% + ' + scrollPosition + this.cssUnit + ')';
-        }
-
-        this.parallaxElement.style[<any>this.cssProperty] = result;
+    constructor(element: ElementRef) {
+        this.hostElement = element.nativeElement;
     }
 
     public ngOnInit() {
-        let cssValArray: string[];
-
         // Read config
         for (const prop in this.config) {
             if (this.config.hasOwnProperty(prop)) {
-                (<any>this)[prop] = (<any>this.config)[prop];
+                (this as any)[prop] = (this.config as any)[prop];
             }
         }
 
@@ -127,7 +100,31 @@ export class ParallaxScrollDirective implements OnInit {
         this.scrollElement.addEventListener('scroll', this.onScroll.bind(this));
     }
 
-    constructor(element: ElementRef) {
-        this.hostElement = element.nativeElement;
+    private onScroll = () => {
+        let result: string;
+        let scrollPosition: number;
+
+        // Read scroll position * speed + initial val
+        if (this.scrollElement instanceof Window) {
+            scrollPosition = this.scrollElement.scrollY * this.speed + this.initialValue;
+        } else {
+            scrollPosition = this.scrollElement.scrollTop * this.speed + this.initialValue;
+        }
+
+        // Set limits
+        if (this.maxValue !== undefined && scrollPosition >= this.maxValue) {
+            scrollPosition = this.maxValue;
+        } else if (this.minValue !== undefined && scrollPosition <= this.minValue) {
+            scrollPosition = this.minValue;
+        }
+
+        // Get output based on axis
+        if (this.axis === 'X') {
+            result = 'calc(50% + ' + scrollPosition + this.cssUnit + ') center';
+        } else {
+            result = 'center calc(50% + ' + scrollPosition + this.cssUnit + ')';
+        }
+
+        this.parallaxElement.style[this.cssProperty as any] = result;
     }
 }
