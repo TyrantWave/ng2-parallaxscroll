@@ -22,22 +22,12 @@ export interface IParallaxScrollConfig {
     //  unit to use for transform (e.g. 'px', '%', etc)
     cssUnit?: string;
 
-    // the id for the element on the page you'd like to track the scrolling of in the
-    // case where the element is not available in the current component;
-    // if no id is defined along with no scrollElement below,
-    // it defaults to the scrolling of the body
+    // if given, used to set the ID of the element used to track the scroll events
     scrollerId?: string;
 
-    // the element in the current component that you'd like the directive to track its
-    // position as it scrolls;  gets assigned to the body if nothing is defined
-    scrollElement?: HTMLElement;
-
-    // the element that you'd like the effects from scrolling the scrollElement applied
-    // to; essentially the element that moves as you scroll
+    // what element moves when you scroll, defaults to the body
     parallaxElement?: HTMLElement;
 
-    // what you want to call it to find the particular instance of it if you need to debug
-    name?: string;
 }
 
 @Directive({
@@ -54,10 +44,10 @@ export class ParallaxScrollDirective implements OnInit {
     @Input() private minValue: number;
     @Input() private cssUnit = 'px';
     @Input() private scrollerId: string;
-    @Input() private scrollElement: any;
     @Input() private parallaxElement: HTMLElement;
 
     private cssProperty = 'backgroundPosition';
+    private scrollElement: any;
     private hostElement: HTMLElement;
 
     constructor(element: ElementRef) {
