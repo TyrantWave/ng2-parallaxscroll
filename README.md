@@ -56,18 +56,20 @@ The parallax can accept a [config] value through the template:
 <div parallax class='blah' [config]="{axis: x, speed: -.3}">
 ```
 
-Or you can import the `IParallaxScrollConfig' type for linting.
+Or you can import the `IParallaxScrollConfig` type for linting.
 
 The config gives the following options:
 
-axis | axis to scroll on, X or Y
-speed | speed to scroll at; can be negative to change direction
-intialValue | initial position in pixels
-maxValue | maximum value
-minValue | minimum value
-cssUnit | css unit to use for transform - px, %, vh, em etc.
-scrollerId | if given, used to set the ID of which element is used to track scrolling. Defaults to window.
-parallaxElement | If given, which element should scroll
+Value           | Use
+--------------- | ---------------
+axis            | axis to scroll on, X or Y
+speed           | speed to scroll at; can be negative to change direction
+intialValue     | initial position in pixels
+maxValue        | maximum value
+minValue        | minimum value
+cssUnit         | css unit to use for transform - px, %, vh, em etc.
+scrollerId      | if given, used to set the ID of which element is used to track scrolling. Defaults to window.  
+parallaxElement | If given, which element should scroll  
 
 
 
