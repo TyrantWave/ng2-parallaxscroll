@@ -14,7 +14,7 @@ npm install --save ng2-parallaxscroll
 git clone https://github.com/TyrantWave/ng2-parallaxscroll
 ```
 
-## Use in your application
+## Importing to your application
 
 Reference the directive in the main module:
 
@@ -35,11 +35,28 @@ imports: [
 ]
 ```
 
-Finally, to use it in the application you put the directive on any component you have styled for it:
+## Using in your application
+
+### Component
+Use the component, providing the image URL, styling CSS for size and an optional config:
+```html
+<ng-parallax img="/path/to/img" [config]="someConfig" class="some-class"></ng-parallax>
+```
+CSS example:
+```css
+.some-class {
+  height: 300px;
+  width: 75%;
+}
+```
+
+### Directive
+Put the directive on any component you have styled for it:
 ```html
 <div parallax class="some-parallax"></div>
 ```
 CSS:
+ - Note here you can set the background-size too.
 ```css
 .some-parallax {
   background-image: url('/parallax_img.jpg');
@@ -64,9 +81,9 @@ Value           | Use
 --------------- | ---------------
 axis            | axis to scroll on, X or Y
 speed           | speed to scroll at; can be negative to change direction
-initialValue     | initial position in pixels
-maxValue        | maximum value
-minValue        | minimum value
+initialValue    | initial position in pixels
+maxValue        | maximum value for transform
+minValue        | minimum value for transform
 cssUnit         | css unit to use for transform - px, %, vh, em etc.
 scrollerId      | if given, used to set the ID of which element is used to track scrolling. Defaults to window.  
 parallaxElement | If given, which element should scroll  
