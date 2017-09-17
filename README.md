@@ -20,14 +20,8 @@ git clone https://github.com/TyrantWave/ng2-parallaxscroll
 
 Reference the directive in the main module:
 
- - If you installed from npm:
 ```typescript
 import { ParallaxScrollModule } from 'ng2-parallaxscroll';
-```
-
- - Or from local source:
-```typescript
-import { ParallaxScrollModule } from './path/to/directives/ng2-parallax-scroll.directive';
 ```
 
 Then in your base module:
