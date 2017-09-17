@@ -42,7 +42,7 @@ imports: [
 ### Component
 Use the component, providing the image URL, styling CSS for size and an optional config:
 ```html
-<ng-parallax img="/path/to/img" [config]="someConfig" class="some-class"></ng-parallax>
+<ng-parallax img="path/to/img" [config]="someConfig" class="some-class"></ng-parallax>
 ```
 CSS example:
 ```css
