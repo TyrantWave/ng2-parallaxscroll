@@ -2,6 +2,8 @@
 
 A parallax directive for Angular 2+.
 
+See an example here: https://tyrantwave.github.io/ng2-parallaxscroll/
+
 ## Installation
 
  - Install from npm:
