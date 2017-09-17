@@ -66,7 +66,7 @@ CSS:
 
 The parallax can accept a [config] value through the template:
 ```html
-<div parallax class='blah' [config]="{axis: x, speed: -.3}">
+<div parallax class='blah' [config]="{axis: X, speed: -.3}">
 ```
 
 Or you can import the `IParallaxScrollConfig` type for linting.
