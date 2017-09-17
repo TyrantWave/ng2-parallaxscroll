@@ -71,7 +71,7 @@ THE SOFTWARE.
 MIT
 MIT
 
-ng2-parallaxscroll@1.1.0
+ng2-parallaxscroll@1.1.1
 MIT
 MIT License
 
