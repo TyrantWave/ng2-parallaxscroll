@@ -1,5 +1,6 @@
 import { IParallaxScrollConfig } from './ng2-parallaxscroll';
-import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, PLATFORM_ID, Inject, Input, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
     // tslint:disable-next-line:directive-selector
@@ -20,9 +21,17 @@ export class ParallaxScrollDirective implements OnInit {
     private cssProperty = 'backgroundPosition';
     private scrollElement: any;
     private hostElement: HTMLElement;
+    private backupElement: any;
+    private testBrowser: boolean;
 
-    constructor(element: ElementRef) {
+    constructor(
+        element: ElementRef,
+        // tslint:disable-next-line:ban-types
+        @Inject(PLATFORM_ID) private platformId: Object) {
         this.hostElement = element.nativeElement;
+        this.testBrowser = isPlatformBrowser(this.platformId);
+        // If the window exists, grab it, else set to hostElement to prevent errors
+        this.backupElement = this.testBrowser ? window : this.hostElement;
     }
 
     public ngOnInit() {
@@ -43,15 +52,13 @@ export class ParallaxScrollDirective implements OnInit {
             try {
                 this.scrollElement = document.getElementById(this.scrollerId);
                 if (!this.scrollElement) {
-                    throw new Error((`ID ('${this.scrollerId}') does not exist! Using window`));
+                    throw new Error((`ID ('${this.scrollerId}') does not exist! Using default`));
                 }
             } catch (e) {
-                // tslint:disable-next-line:no-console
-                console.warn(e);
-                this.scrollElement = window;
+                this.scrollElement = this.backupElement;
             }
         } else {
-            this.scrollElement = window;
+            this.scrollElement = this.backupElement;
         }
 
         this.onScroll();
@@ -64,7 +71,7 @@ export class ParallaxScrollDirective implements OnInit {
         let scrollPosition: number;
 
         // Read scroll position * speed + initial val
-        if (this.scrollElement instanceof Window) {
+        if (this.testBrowser && this.scrollElement instanceof Window) {
             scrollPosition = this.scrollElement.scrollY * this.speed + this.initialValue;
         } else {
             scrollPosition = this.scrollElement.scrollTop * this.speed + this.initialValue;

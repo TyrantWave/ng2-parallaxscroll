@@ -9,7 +9,7 @@ import { ParallaxscrollModule } from 'projects/ng2-parallaxscroll/src/public_api
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     ParallaxscrollModule,
   ],
   providers: [],

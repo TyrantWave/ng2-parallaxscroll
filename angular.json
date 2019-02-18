@@ -48,7 +48,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng2-parallaxscroll-tester",
+            "outputPath": "dist/browser",
             "index": "projects/ng2-parallaxscroll-tester/src/index.html",
             "main": "projects/ng2-parallaxscroll-tester/src/main.ts",
             "polyfills": "projects/ng2-parallaxscroll-tester/src/polyfills.ts",
@@ -65,12 +65,10 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/ng2-parallaxscroll-tester/src/environments/environment.ts",
-                  "with": "projects/ng2-parallaxscroll-tester/src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "projects/ng2-parallaxscroll-tester/src/environments/environment.ts",
+                "with": "projects/ng2-parallaxscroll-tester/src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -80,13 +78,11 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
+              "budgets": [{
+                "type": "initial",
+                "maximumWarning": "2mb",
+                "maximumError": "5mb"
+              }]
             }
           }
         },
@@ -134,6 +130,27 @@
             "exclude": [
               "**/node_modules/**"
             ]
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "projects/ng2-parallaxscroll-tester/src/main.server.ts",
+            "tsConfig": "projects/ng2-parallaxscroll-tester/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [{
+                "replace": "projects/ng2-parallaxscroll-tester/src/environments/environment.ts",
+                "with": "projects/ng2-parallaxscroll-tester/src/environments/environment.prod.ts"
+              }],
+              "sourceMap": false,
+              "optimization": {
+                "scripts": false,
+                "styles": true
+              }
+            }
           }
         }
       }
