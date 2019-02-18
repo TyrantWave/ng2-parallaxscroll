@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ParallaxscrollComponent } from './ng2-parallaxscroll.component';
+import { ParallaxScrollComponent } from './ng2-parallaxscroll.component';
 
-describe('ParallaxscrollComponent', () => {
-  let component: ParallaxscrollComponent;
-  let fixture: ComponentFixture<ParallaxscrollComponent>;
+describe('ParallaxScrollComponent', () => {
+  let component: ParallaxScrollComponent;
+  let fixture: ComponentFixture<ParallaxScrollComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ParallaxscrollComponent]
+      declarations: [ParallaxScrollComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ParallaxscrollComponent);
+    fixture = TestBed.createComponent(ParallaxScrollComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
