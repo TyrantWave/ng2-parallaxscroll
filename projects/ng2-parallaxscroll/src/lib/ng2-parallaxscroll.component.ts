@@ -35,8 +35,8 @@ export class ParallaxScrollComponent implements OnInit {
 
     this.parallaxStyles = {
       'background-image': this.img ? 'url(' + this.img + ')' : '',
-      'height': '100%',
-      'width': '100%'
+      height: '100%',
+      width: '100%'
     };
   }
 
