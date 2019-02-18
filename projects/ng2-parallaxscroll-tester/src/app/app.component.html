@@ -1,0 +1,59 @@
+<h1>Parallax Scroll Examples</h1>
+
+<h3>Config used:</h3>
+<pre>
+  <code class="language-typescript">
+    config: IParallaxScrollConfig = &#123;
+      axis: 'Y',
+      speed: -.5
+    &#125;
+  </code>
+</pre>
+
+<h3>CSS Used: </h3>
+<pre>
+  <code class="language-css">
+    .parallax-container &#123;
+      height: 200px;
+      width: 1000px;
+      max-width: 100%;
+    &#125;
+  
+    .parallax-directive &#123;
+      background-image: url("/assets/background.JPG");
+      height: 200px;
+      width: 1000px;
+      max-width: 100%;
+    &#125;
+  </code>
+</pre>
+<h2>As a component: </h2>
+<pre>
+  <code class="language-markup">
+    &lt;ng-parallax [config]="config" img="/assets/background.JPG" class="parallax-container"&gt;&lt;/ng-parallax&gt;
+  </code>
+</pre>
+<ng-parallax [config]="config" img="/assets/background.JPG" class="parallax-container"></ng-parallax>
+
+<p>...</p>
+<p>...</p>
+<p>...</p>
+<p>...</p>
+<h2>As a directive: </h2>
+<pre>
+  <code class="language-markup">
+    &lt;div parallax [config]="config" class="parallax-directive"&gt;&lt;/div&gt;
+  </code>
+</pre>
+<div parallax [config]="config" class="parallax-directive"></div>
+
+<p>...</p>
+<p>...</p>
+<p>...</p>
+<p>...</p>
+<p>...</p>
+<p>...</p>
+<p>...</p>
+<p>...</p>
+<p>...</p>
+<p>...</p>

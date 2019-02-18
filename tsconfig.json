@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng2-parallaxscroll": [
+        "dist/ng2-parallaxscroll"
+      ],
+      "ng2-parallaxscroll/*": [
+        "dist/ng2-parallaxscroll/*"
+      ]
+    }
   }
 }
