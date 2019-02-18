@@ -1,0 +1,12 @@
+.parallax-container {
+  height: 200px;
+  width: 1000px;
+  max-width: 100%;
+}
+
+.parallax-directive {
+  background-image: url("/assets/background.JPG");
+  height: 200px;
+  width: 1000px;
+  max-width: 100%;
+}
