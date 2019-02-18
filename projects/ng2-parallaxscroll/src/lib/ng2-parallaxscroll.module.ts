@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ParallaxscrollComponent } from './ng2-parallaxscroll.component';
+import { ParallaxScrollComponent } from './ng2-parallaxscroll.component';
 import { ParallaxScrollDirective } from './ng2-parallaxscroll.directive';
 
 @NgModule({
   declarations: [
-    ParallaxscrollComponent,
+    ParallaxScrollComponent,
     ParallaxScrollDirective
   ],
   imports: [
     CommonModule,
   ],
   exports: [
-    ParallaxscrollComponent,
+    ParallaxScrollComponent,
     ParallaxScrollDirective
   ]
 })
-export class ParallaxscrollModule { }
+export class ParallaxScrollModule { }

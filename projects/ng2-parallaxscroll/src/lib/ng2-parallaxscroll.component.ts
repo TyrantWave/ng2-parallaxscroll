@@ -21,7 +21,7 @@ import {
         }
     `]
 })
-export class ParallaxscrollComponent implements OnInit {
+export class ParallaxScrollComponent implements OnInit {
 
   @Input() public config: IParallaxScrollConfig;
   // tslint:disable-next-line:no-input-rename
