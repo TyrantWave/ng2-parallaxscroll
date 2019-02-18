@@ -1,24 +1,90 @@
-# Ng2Parallaxscroll
+# ng2-parallaxscroll
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+A parallax directive for Angular 2+, now with Universal support!
 
-## Code scaffolding
+See an example here: https://tyrantwave.github.io/ng2-parallaxscroll/
 
-Run `ng generate component component-name --project ng2-parallaxscroll` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng2-parallaxscroll`.
-> Note: Don't forget to add `--project ng2-parallaxscroll` or else it will be added to the default project in your `angular.json` file. 
+## Installation
 
-## Build
+ - Install from npm:
+```
+npm install --save ng2-parallaxscroll
+```
 
-Run `ng build ng2-parallaxscroll` to build the project. The build artifacts will be stored in the `dist/` directory.
+ - Clone from git:
+```
+git clone https://github.com/TyrantWave/ng2-parallaxscroll
+```
 
-## Publishing
+## Importing to your application
 
-After building your library with `ng build ng2-parallaxscroll`, go to the dist folder `cd dist/ng2-parallaxscroll` and run `npm publish`.
+Reference the directive in the main module:
 
-## Running unit tests
+```typescript
+import { ParallaxScrollModule } from 'ng2-parallaxscroll';
+```
 
-Run `ng test ng2-parallaxscroll` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Then in your base module:
+```typescript
+imports: [
+    ParallaxScrollModule,
+]
+```
 
-## Further help
+## Using in your application
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Component
+Use the component, providing the image URL, styling CSS for size and an optional config:
+```html
+<ng-parallax img="path/to/img" [config]="someConfig" class="some-class"></ng-parallax>
+```
+CSS example:
+```css
+.some-class {
+  height: 300px;
+  width: 75%;
+}
+```
+
+### Directive
+Put the directive on any component you have styled for it:
+```html
+<div parallax class="some-parallax"></div>
+```
+CSS:
+ - Note here you can set the background-size too.
+```css
+.some-parallax {
+  background-image: url('/parallax_img.jpg');
+  background-size: 100%;
+  height: 300px;
+  width: 100%;
+}
+```
+
+## Customisation
+
+The parallax can accept a [config] value through the template:
+```html
+<div parallax class='blah' [config]="{axis: X, speed: -.3}">
+```
+
+Or you can import the `IParallaxScrollConfig` type for linting.
+
+The config gives the following options:
+
+Value           | Use
+--------------- | ---------------
+axis            | axis to scroll on, X or Y
+speed           | speed to scroll at; can be negative to change direction
+initialValue    | initial position in pixels
+maxValue        | maximum value for transform
+minValue        | minimum value for transform
+cssUnit         | css unit to use for transform - px, %, vh, em etc.
+scrollerId      | if given, used to set the ID of which element is used to track scrolling. Defaults to window.  
+parallaxElement | If given, which element should scroll  
+
+
+
+## License
+MIT
