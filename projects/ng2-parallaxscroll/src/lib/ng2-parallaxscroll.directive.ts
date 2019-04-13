@@ -17,6 +17,7 @@ export class ParallaxScrollDirective implements OnInit {
     @Input() private cssUnit = 'px';
     @Input() private scrollerId: string;
     @Input() private parallaxElement: HTMLElement;
+    @Input() private parallaxPivot = '50%';
 
     private cssProperty = 'backgroundPosition';
     private scrollElement: any;
@@ -86,9 +87,9 @@ export class ParallaxScrollDirective implements OnInit {
 
         // Get output based on axis
         if (this.axis === 'X') {
-            result = 'calc(50% + ' + scrollPosition + this.cssUnit + ') center';
+            result = 'calc(' + this.parallaxPivot + ' + ' + scrollPosition + this.cssUnit + ') center';
         } else {
-            result = 'center calc(50% + ' + scrollPosition + this.cssUnit + ')';
+            result = 'center calc(' + this.parallaxPivot + ' + ' + scrollPosition + this.cssUnit + ')';
         }
 
         this.parallaxElement.style[this.cssProperty as any] = result;

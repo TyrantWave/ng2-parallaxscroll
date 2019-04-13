@@ -26,4 +26,6 @@ export interface IParallaxScrollConfig {
     // what element moves when you scroll, defaults to the body
     parallaxElement?: HTMLElement;
 
+    // parallax pivot of the axis - default to '50%'
+    parallaxPivot?: string;
 }
