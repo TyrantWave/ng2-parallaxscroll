@@ -82,7 +82,8 @@ maxValue        | maximum value for transform
 minValue        | minimum value for transform
 cssUnit         | css unit to use for transform - px, %, vh, em etc.
 scrollerId      | if given, used to set the ID of which element is used to track scrolling. Defaults to window.  
-parallaxElement | If given, which element should scroll  
+parallaxElement | If given, which element should scroll 
+parallaxPivot   | Initial offset to use for the scroll, defaults to 50% 
 
 
 
