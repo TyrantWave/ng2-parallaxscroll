@@ -1,6 +1,6 @@
 {
   "name": "ng2-parallaxscroll",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "A parallax directive for Angular 2+, now with Universal support!",
   "keywords": [
     "Angular",
@@ -13,7 +13,7 @@
     "url": "https://github.com/TyrantWave/ng2-parallaxscroll"
   },
   "peerDependencies": {
-    "@angular/common": "~8.0.0",
-    "@angular/core": "~8.0.0"
+    "@angular/common": "~8.2.5",
+    "@angular/core": "~8.2.5"
   }
 }

@@ -45,6 +45,12 @@
       "prefix": "app",
       "schematics": {},
       "architect": {
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/ng2-parallaxscroll/"
+          }
+        },
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
