@@ -28,7 +28,7 @@
     "angular-cli-ghpages": "^0.6.0",
     "core-js": "^3.2.1",
     "rxjs": "~6.5.3",
-    "set-value": ">=2.0.1",
+    "set-value": ">=4.0.1",
     "ts-loader": "^6.0.4",
     "webpack-cli": "^3.3.8",
     "zone.js": "~0.10.2"
